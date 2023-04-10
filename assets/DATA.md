@@ -27,6 +27,8 @@ python3 projects/UNINEXT/convert_pth2pkl.py weights/convnext_large_22k_1k_384_ne
 wget -c https://dl.fbaipublicfiles.com/detectron2/ImageNetPretrained/MAE/mae_pretrain_vit_huge_p14to16.pth
 ```
 
+Other pretrained models can be found in [MODEL_ZOO.md](MODEL_ZOO.md)
+
 ## Data
 For users who are only interested in part of tasks, there is no need of downloading all datasets. The following lines list the datasets needed for different tasks. Datasets in the brackets are only used during the inference.
 
@@ -47,7 +49,7 @@ Pretraining on Objects365 requires many training resources. For UNINEXT-50, Obje
 python3 conversion/download_obj365_v2.py
 ```
 Following DINO, we select the first 5,000 out of 80,000 validation images as our
-validation set and add the others to training. We put the processed json files on [Google Drive](), which can be directly downloaded.
+validation set and add the others to training. We put the processed json files on [OneDrive](https://maildluteducn-my.sharepoint.com/:u:/g/personal/yan_bin_mail_dlut_edu_cn/ETscaOUVpeVBmjXUKYHfYvMB5wSxfb9A9Ag4KKe5lL3Xwg?e=3e41N8), which can be directly downloaded.
 We expect that the data is organized as below.
 ```
 ${UNINEXT_ROOT}
@@ -205,6 +207,7 @@ unzip meta_expressions_test.zip
 rm train.zip valid.zip test.zip meta_expressions_test.zip
 cd ../..
 python3 conversion/convert_refytb2cocovid.py
+python3 conversion/convert_refytvos2ytvis_val.py
 ```
 Download ```DAVIS-2017-Unsupervised-trainval-480p.zip``` and ```DAVIS-2017_semantics-480p.zip``` from [DAVIS website](https://davischallenge.org/davis2017/code.html). Download the text annotations ```davis_text_annotations.zip``` from the [website](https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/research/video-segmentation/video-object-segmentation-with-language-referring-expressions). Put the zip files under ```datasets/ref-davis```. Run the following commands.
 ```
